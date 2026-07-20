@@ -24,12 +24,32 @@
     "display": "Sora",
     "corpo": "Inter"
   },
-  "ga4": "",
+  "ga4": "G-VEZZ7ZKKWJ",
   "nav": [
-    { "label": "Como funciona", "href": "/#como", "key": "como" },
-    { "label": "Planos", "href": "/#planos", "key": "planos" },
-    { "label": "Portfólio", "href": "/#portfolio", "key": "portfolio" },
-    { "label": "Blog", "href": "/blog.html", "key": "blog" },
-    { "label": "Contato", "href": "/#contato", "key": "contato" }
+    {
+      "label": "Como funciona",
+      "href": "/#como",
+      "key": "como"
+    },
+    {
+      "label": "Planos",
+      "href": "/#planos",
+      "key": "planos"
+    },
+    {
+      "label": "Portfólio",
+      "href": "/#portfolio",
+      "key": "portfolio"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog.html",
+      "key": "blog"
+    },
+    {
+      "label": "Contato",
+      "href": "/#contato",
+      "key": "contato"
+    }
   ]
 }
