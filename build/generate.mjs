@@ -42,6 +42,10 @@ const bulb = (cls = '') => `<svg class="bulb ${cls}" viewBox="0 0 64 90" aria-hi
   </g>
 </svg>`;
 
+// onda divisória — fica DENTRO da seção (topo, absolute), fill = cor da seção de cima.
+// path com overshoot -6px + overflow visible = zero filete de 1px (aprendizado VDB).
+const wave = (fillAbove, flip = false) => `<div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"${flip ? ' style="transform:scaleX(-1)"' : ''}><path fill="${fillAbove}" d="M0 -6h1440v26c-186 30-424 44-722 30C428 36 186 58 0 46Z"/></svg></div>`;
+
 const ICONS = {
   palette: '<path d="M12 3a9 9 0 1 0 0 18c1.7 0 2-1.3 1.2-2.2-.8-.9-.5-2.2.8-2.2H16a5 5 0 0 0 5-5c0-4.4-4-6.6-9-6.6Z"/><circle cx="7.5" cy="11.5" r="1.3"/><circle cx="12" cy="8" r="1.3"/><circle cx="16.5" cy="11.5" r="1.3"/>',
   file: '<path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/>',
@@ -156,7 +160,6 @@ function floatBtns() {
 // ---------- HOME sections ----------
 function heroSec() {
   return `<section class="hero">
-  <div class="hero__glow" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <p class="eyebrow eyebrow--y">${ic('bolt')} Criação de sites que convertem</p>
     <h1 class="hero__h1">Presença de <span class="hl">gente grande</span> pro seu negócio.</h1>
@@ -185,6 +188,7 @@ function porqueSec() {
     'Mais vendas, mais leads no WhatsApp.'
   ];
   return `<section class="sec sec--white" id="porque">
+  ${wave('var(--navy-d)')}
   <div class="wrap">
     <div class="sec__head reveal">
       <p class="eyebrow">Por que um site</p>
@@ -201,12 +205,13 @@ function porqueSec() {
 function comoSec() {
   const steps = [
     ['palette', 'Identidade visual', 'Definimos sua paleta e entregamos 3 opções feitas pra sua marca.'],
-    ['file', 'Briefing → site', 'Você preenche o briefing; a gente constrói o site com a cara do seu negócio.'],
+    ['file', 'Briefing → Site', 'Você preenche o briefing; a gente constrói o site com a cara do seu negócio.'],
     ['google', 'Ficha do Google', 'Criamos seu Perfil da Empresa — seu lugar no maior buscador do mundo.'],
-    ['list', 'Serviços na ficha', 'Tudo que você faz, cadastrado e achável dentro do Google.'],
+    ['list', 'Cadastro de serviços no Google', 'Tudo que você faz, cadastrado e achável dentro do Google.'],
     ['search', 'SEO completo', 'Você já entra ranqueando nas principais buscas do seu nicho.']
   ];
   return `<section class="sec sec--soft" id="como">
+  ${wave('var(--white)', true)}
   <div class="wrap">
     <div class="sec__head reveal">
       <p class="eyebrow">Como funciona</p>
@@ -245,10 +250,12 @@ function planosSec() {
     <ul class="plan__list">
       ${p.inclui.map(x => `<li>${ic('check')}<span>${esc(x)}</span></li>`).join('')}
     </ul>
+    ${p.destaque ? `<p class="plan__note">${bulbMini()}<span>${esc(p.destaque)}</span></p>` : ''}
     <a class="btn ${p.slug === 'full' ? 'btn--cta' : 'btn--dark'} plan__cta" href="${wa('Olá! Tenho interesse no plano ' + p.nome + ' (' + p.preco_display + '). Pode me explicar?')}" data-wa>Quero o ${esc(p.nome)}</a>
   </article>`).join('');
   const r = PLANOS.recorrencia, a = PLANOS.addon_google;
   return `<section class="sec sec--white" id="planos">
+  ${wave('var(--bg)')}
   <div class="wrap">
     <div class="sec__head reveal">
       <p class="eyebrow">Planos</p>
@@ -256,13 +263,28 @@ function planosSec() {
       <p class="lead">Preço claro, sem enrolação. Todo plano sai no ar em 7 dias, com ficha do Google e SEO inclusos.</p>
     </div>
     <div class="plans">${cards}</div>
-    <div class="plans__extra reveal">
-      <div><strong>${esc(r.preco_display)} · ${esc(r.nome)}</strong><span>${esc(r.inclui[0])}, ${r.inclui.length} itens no total — atualizações, post no blog e análise quinzenal.</span></div>
-      <div><strong>${esc(a.preco_display)} · ${esc(a.nome)}</strong><span>${esc(a.descricao)}</span></div>
+    <div class="extras">
+      <div class="extra reveal">
+        <p class="extra__k">Depois do lançamento</p>
+        <h3>${esc(r.nome)}</h3>
+        <p class="extra__price">${esc(r.preco_display)}</p>
+        <ul class="plan__list">
+          ${r.inclui.map(x => `<li>${ic('check')}<span>${esc(x)}</span></li>`).join('')}
+        </ul>
+      </div>
+      <div class="extra reveal">
+        <p class="extra__k">Complemento único</p>
+        <h3>${esc(a.nome)}</h3>
+        <p class="extra__price">${esc(a.preco_display)}</p>
+        <p class="extra__desc">${esc(a.descricao)}</p>
+      </div>
     </div>
   </div>
 </section>`;
 }
+
+// mini-lâmpada pro selo de nota do plano
+const bulbMini = () => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" class="ic"><path d="M12 3a6.5 6.5 0 0 0-4 11.6c.8.7 1.3 1.4 1.5 2.4h5c.2-1 .7-1.7 1.5-2.4A6.5 6.5 0 0 0 12 3Z"/><path d="M10 20h4"/></svg>`;
 
 function portfolioSec() {
   const cards = PLANOS.portfolio.map(s => `<a class="pf reveal" href="${s.url}" rel="noopener">
@@ -271,6 +293,7 @@ function portfolioSec() {
     <span class="pf__url">${esc(s.url.replace('https://', ''))} ${ic('arrow')}</span>
   </a>`).join('');
   return `<section class="sec sec--soft" id="portfolio">
+  ${wave('var(--white)', true)}
   <div class="wrap">
     <div class="sec__head reveal">
       <p class="eyebrow">Portfólio</p>
@@ -284,6 +307,7 @@ function portfolioSec() {
 
 function garantiaSec() {
   return `<section class="sec sec--white" id="garantia">
+  ${wave('var(--bg)')}
   <div class="wrap garantia">
     <div class="garantia__card reveal">
       <p class="eyebrow eyebrow--y">Garantia</p>
@@ -295,12 +319,48 @@ function garantiaSec() {
 </section>`;
 }
 
+function formSec() {
+  const nichos = ['Turismo', 'Serviços locais', 'Saúde e bem-estar', 'Loja / e-commerce', 'Marca pessoal', 'Outro'];
+  return `<section class="sec sec--soft" id="contato">
+  ${wave('var(--white)', true)}
+  <div class="wrap cform__grid">
+    <div class="cform__copy reveal">
+      <p class="eyebrow">Contato</p>
+      <h2>Conta rápido sobre o seu negócio</h2>
+      <p class="lead">Preenche aqui que a mensagem chega pronta no nosso WhatsApp — a gente já entra na conversa sabendo como te ajudar.</p>
+      <ul class="hero__trust cform__trust">
+        <li>${ic('check')} Resposta rápida</li>
+        <li>${ic('check')} Sem compromisso</li>
+        <li>${ic('check')} Prévia grátis do design</li>
+      </ul>
+    </div>
+    <form class="cform reveal" id="cform" data-wa-num="${WA}">
+      <div class="cform__row">
+        <label>Seu nome<input type="text" name="nome" required autocomplete="name" placeholder="Como você se chama?"></label>
+        <label>Cargo na empresa<input type="text" name="cargo" placeholder="Dono, gerente, sócio…"></label>
+      </div>
+      <div class="cform__row">
+        <label>Nome da empresa<input type="text" name="empresa" required autocomplete="organization" placeholder="Sua empresa"></label>
+        <label>Instagram da empresa<input type="text" name="instagram" placeholder="@suaempresa"></label>
+      </div>
+      <div class="cform__row">
+        <label>WhatsApp / telefone<input type="tel" name="fone" required autocomplete="tel" placeholder="(21) 9 9999-9999"></label>
+        <label>Nicho de atuação<select name="nicho">${nichos.map(n => `<option>${n}</option>`).join('')}</select></label>
+      </div>
+      <button class="btn btn--cta btn--lg cform__send" type="submit">${waLogo}<span>Enviar pro WhatsApp</span></button>
+      <p class="cform__note">Abre o seu WhatsApp com a mensagem pronta — é só apertar enviar.</p>
+    </form>
+  </div>
+</section>`;
+}
+
 function contatoSec() {
-  return `<section class="sec sec--navy cta-final" id="contato">
+  return `<section class="sec sec--navy cta-final" id="bora">
+  ${wave('var(--bg)')}
   <div class="wrap cta-final__in">
     ${bulb('cta-final__bulb')}
     <h2>É só olhar pros lados: toda grande empresa tem um site.<br><span class="hl">Só falta você.</span></h2>
-    <p class="lead">Comece pelo WhatsApp ou preencha o briefing. Em 7 dias seu site tá no ar — vendendo, ranqueando e gerando autoridade.</p>
+    <p class="cta-final__slogan">E aí? <strong>Bora de Site!?</strong></p>
     <div class="hero__cta">
       <a class="btn btn--cta btn--lg" href="${JOTFORM}" rel="noopener">Começar meu site ${ic('arrow')}</a>
       <a class="btn btn--ghost btn--lg" href="${WA_DEFAULT}" data-wa>${waLogo}<span>Falar no WhatsApp</span></a>
@@ -333,14 +393,14 @@ function buildHome() {
       '@context': 'https://schema.org', '@type': 'FAQPage',
       mainEntity: [
         ['Em quanto tempo o site fica pronto?', 'Entregamos o site no ar em 7 dias, com ficha do Google e SEO inclusos.'],
-        ['Quanto custa um site na Bora de Site?', 'Os planos vão de R$ 3.000 (Master) a R$ 5.000 (Super Site). O plano Full custa R$ 4.000 e inclui blog.'],
+        ['Quanto custa um site na Bora de Site?', 'Os planos são: Master por R$ 3.000, Super Site por R$ 4.000 (inclui blog) e Site 360° por R$ 5.000 (inclui landing page de alta conversão).'],
         ['Consigo ver o site antes de pagar?', 'Sim. Criamos uma prévia do seu site antes da contratação. Se você não gostar do design, não paga nada e o contrato é cancelado.'],
         ['O site já vem otimizado para o Google?', 'Sim. Antes de entregar, fazemos um trabalho completo de SEO e criamos sua ficha do Google (Perfil da Empresa) com os serviços cadastrados.']
       ].map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }))
     }
   ];
   return head(title, desc, URL + '/', jsonld)
-    + heroSec() + porqueSec() + comoSec() + planosSec() + portfolioSec() + garantiaSec() + contatoSec()
+    + heroSec() + porqueSec() + comoSec() + planosSec() + portfolioSec() + garantiaSec() + formSec() + contatoSec()
     + foot();
 }
 

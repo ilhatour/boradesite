@@ -59,6 +59,30 @@
     }
   });
 
+  // formulário de contato → abre WhatsApp com a mensagem pronta
+  var form = doc.getElementById('cform');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var g = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
+      var linhas = [
+        'Olá! Vim pelo site da Bora de Site 💡',
+        'Nome: ' + g('nome'),
+        g('cargo') ? 'Cargo: ' + g('cargo') : '',
+        'Empresa: ' + g('empresa'),
+        g('instagram') ? 'Instagram: ' + g('instagram') : '',
+        'WhatsApp/Telefone: ' + g('fone'),
+        'Nicho: ' + g('nicho'),
+        'Quero saber mais sobre criar meu site!'
+      ].filter(Boolean);
+      var url = 'https://wa.me/' + form.getAttribute('data-wa-num') + '?text=' + encodeURIComponent(linhas.join('\n'));
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'whatsapp_click', { link_url: url, cta_text: 'form_contato', page_path: location.pathname });
+      }
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+
   // floats idle-hide (some após 2.5s parado, volta em qualquer atividade)
   var floats = doc.getElementById('floats');
   if (floats) {

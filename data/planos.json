@@ -16,23 +16,24 @@
     },
     {
       "slug": "full",
-      "nome": "Full",
+      "nome": "Super Site",
       "preco": 4000,
       "preco_display": "R$ 4.000",
       "resumo": "Tudo do Master + blog pra atrair tráfego contínuo.",
+      "destaque": "O blog é uma das maiores fontes de tráfego e audiência que um site pode ter — você já sai publicando.",
       "inclui": [
         "Tudo do plano Master",
         "Blog com 3 postagens em termos altamente buscados"
       ]
     },
     {
-      "slug": "super-site",
-      "nome": "Super Site",
+      "slug": "site-360",
+      "nome": "Site 360°",
       "preco": 5000,
       "preco_display": "R$ 5.000",
-      "resumo": "Tudo do Full + landing page de alta conversão pro seu tráfego pago.",
+      "resumo": "Tudo do Super Site + landing page de alta conversão pro seu tráfego pago.",
       "inclui": [
-        "Tudo do plano Full",
+        "Tudo do plano Super Site",
         "Landing page de alta conversão (copy poderosa) pra vender o produto vencedor",
         "Destino ideal do tráfego pago (Facebook, Instagram, Google)"
       ]
@@ -43,10 +44,9 @@
     "preco": 500,
     "preco_display": "R$ 500/mês",
     "inclui": [
-      "1 postagem no blog por mês",
-      "4 horas de trabalho/mês para solicitações (via formulário)",
-      "Execução das atualizações que você pedir no site",
-      "1 postagem no Google por mês",
+      "2 postagens no blog por mês",
+      "4 horas de ajustes no site — solicitações via formulário (até 1 por semana)",
+      "1 postagem no Google (Perfil da Empresa) por mês",
       "Análise de desempenho quinzenal (crescimento e cliques no Google)"
     ]
   },
