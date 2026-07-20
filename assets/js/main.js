@@ -59,6 +59,18 @@
     }
   });
 
+  // carrossel do portfólio — setas
+  var rail = doc.getElementById('pfs');
+  if (rail) {
+    doc.querySelectorAll('.pfs__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = rail.querySelector('.pf');
+        var step = card ? card.getBoundingClientRect().width + 18 : 420;
+        rail.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
+      });
+    });
+  }
+
   // formulário de contato → abre WhatsApp com a mensagem pronta
   var form = doc.getElementById('cform');
   if (form) {

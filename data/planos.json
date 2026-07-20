@@ -59,11 +59,11 @@
   "garantia": "Criamos uma prévia do seu site antes de você contratar. Gostou do design? Fecha com a gente. Não gostou? Não paga nada e o contrato é cancelado.",
   "prazo": "7 dias",
   "portfolio": [
-    { "nome": "Ilha Tour", "url": "https://ilhatour.com", "nicho": "Turismo — travessia e passeios" },
-    { "nome": "Vou de Barco", "url": "https://voudebarco.com", "nicho": "Empresa náutica" },
-    { "nome": "Pousada Paraíso", "url": "https://paraisoilhagrande.com.br", "nicho": "Pousada" },
-    { "nome": "Nutri Carina", "url": "https://nutricarinabat.com", "nicho": "Nutricionista — marca pessoal" },
-    { "nome": "Ilha Tech", "url": "https://ilhatech.io", "nicho": "Tecnologia" },
-    { "nome": "Nave Mãe", "url": "https://navemae.io", "nicho": "SaaS" }
+    { "nome": "Ilha Tour", "url": "https://ilhatour.com", "nicho": "Turismo — travessia e passeios", "img": "ilhatour.jpg" },
+    { "nome": "Vou de Barco", "url": "https://voudebarco.com", "nicho": "Empresa náutica", "img": "voudebarco.jpg" },
+    { "nome": "Pousada Paraíso", "url": "https://paraisoilhagrande.com.br", "nicho": "Pousada", "img": "paraiso.jpg" },
+    { "nome": "Nutri Carina", "url": "https://nutricarinabat.com", "nicho": "Nutricionista — marca pessoal", "img": "nutricarina.jpg" },
+    { "nome": "Ilha Tech", "url": "https://ilhatech.io", "nicho": "Tecnologia", "img": "ilhatech.jpg" },
+    { "nome": "Nave Mãe", "url": "https://navemae.io", "nicho": "SaaS", "img": "navemae.jpg" }
   ]
 }

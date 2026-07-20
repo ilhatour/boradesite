@@ -29,6 +29,7 @@
     { "label": "Como funciona", "href": "/#como", "key": "como" },
     { "label": "Planos", "href": "/#planos", "key": "planos" },
     { "label": "Portfólio", "href": "/#portfolio", "key": "portfolio" },
+    { "label": "Blog", "href": "/blog.html", "key": "blog" },
     { "label": "Contato", "href": "/#contato", "key": "contato" }
   ]
 }

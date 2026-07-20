@@ -1,0 +1,82 @@
+{
+  "_nota": "Posts do blog. conteudo = array: string=parágrafo, {h2}, {lista:[]}, {html} (links internos, escrito por nós). Autor institucional.",
+  "posts": [
+    {
+      "slug": "site-ou-instagram",
+      "titulo": "Site ou Instagram: onde sua empresa deveria investir primeiro?",
+      "resumo": "Todo mundo pensa na rede social e esquece o feijão com arroz. Entenda a diferença entre presença alugada e presença própria — e por que o site vem primeiro.",
+      "data": "2026-07-20",
+      "categoria": "Presença digital",
+      "seo_title": "Site ou Instagram: onde investir primeiro? | Bora de Site",
+      "seo_desc": "Instagram é presença alugada; o site é seu. Veja por que um site profissional gera autoridade, é achado no Google e converte mais — e como os dois se completam.",
+      "conteudo": [
+        "Se a sua empresa tem Instagram mas não tem site, você está construindo a casa no terreno dos outros. O alcance muda toda semana, o algoritmo decide quem vê seu conteúdo e o perfil pode ser bloqueado sem aviso. É presença — mas é presença alugada.",
+        { "h2": "O site é o feijão com arroz" },
+        "O site é o único pedaço da internet que é realmente seu. Nele você concentra as informações principais da empresa, mostra seus produtos e serviços do seu jeito e recebe o cliente sem depender de algoritmo. Você investe uma vez e ele trabalha por muito tempo.",
+        { "h2": "O que o site faz que a rede social não faz" },
+        { "lista": [
+          "Aparece no Google quando alguém pesquisa o que você vende — gente pronta pra comprar.",
+          "Gera autoridade: clientes mais exigentes pesquisam a empresa antes de fechar.",
+          "Vira um link profissional pra enviar no WhatsApp, no orçamento, na bio.",
+          "Funciona como portfólio permanente, organizado por você.",
+          "Não muda de regra toda semana."
+        ] },
+        { "h2": "Não é um contra o outro" },
+        "O Instagram continua importante — ele gera relacionamento e alcance. Mas o site é a base: é pra onde o interessado vai quando quer levar a sério. Os dois juntos se potencializam: a rede social atrai, o site convence e converte.",
+        { "html": "<p>Quer sair na frente? A Bora de Site coloca sua empresa no ar em 7 dias, com SEO e ficha do Google inclusos. <a href=\"/quanto-custa-um-site.html\">Veja quanto custa</a> ou <a href=\"/#contato\">fale com a gente</a>.</p>" }
+      ]
+    },
+    {
+      "slug": "ficha-do-google-perfil-da-empresa",
+      "titulo": "Ficha do Google: o perfil que muita empresa nem sabe que existe",
+      "resumo": "O Perfil da Empresa no Google é como uma rede social — só que a rede é o Google. Entenda o que é a ficha, por que ela importa e como o site potencializa o resultado.",
+      "data": "2026-07-20",
+      "categoria": "Google",
+      "seo_title": "O que é a ficha do Google (Perfil da Empresa) e por que ter | Bora de Site",
+      "seo_desc": "A ficha do Google faz sua empresa aparecer no mapa e na busca local. Veja por que ela importa, como funciona e por que site + ficha juntos geram mais autoridade.",
+      "conteudo": [
+        "Pesquise o nome de qualquer empresa conhecida no Google: à direita aparece um cartão com fotos, endereço, horário, avaliações e botão de contato. Isso é a ficha do Google — o Perfil da Empresa. Muita empresa pequena nem sabe que ela existe, e é aí que mora a oportunidade.",
+        { "h2": "Uma rede social em que a rede é o Google" },
+        "A ficha funciona como um perfil: você publica novidades, responde avaliações, cadastra serviços e fotos. A diferença é onde ela aparece — na maior página de buscas do mundo e no Google Maps, exatamente na hora em que alguém procura o que você faz.",
+        { "h2": "Site e ficha são coisas diferentes (e se potencializam)" },
+        "O site é a sua casa própria na internet; a ficha é a sua vitrine dentro do Google. Um site bem feito potencializa o resultado da ficha: o Google entende melhor o que sua empresa faz, e quem clica encontra uma presença completa — o que gera mais autoridade e mais confiança.",
+        { "h2": "O que cadastrar na ficha" },
+        { "lista": [
+          "Categoria certa do seu negócio",
+          "Serviços ou produtos, um a um",
+          "Fotos reais e atualizadas",
+          "Horário de funcionamento e contato",
+          "Link pro seu site"
+        ] },
+        { "html": "<p>Na Bora de Site, a criação da ficha do Google e o cadastro dos serviços fazem parte de todos os planos — junto com o site e o SEO. <a href=\"/criacao-de-sites.html\">Veja como funciona</a>.</p>" }
+      ]
+    },
+    {
+      "slug": "vantagens-de-ter-um-site",
+      "titulo": "9 vantagens de ter um site profissional (que o seu concorrente esquece)",
+      "resumo": "Autoridade, Google, portfólio, mais vendas — as vantagens práticas de ter um site profissional pra sua pequena ou média empresa.",
+      "data": "2026-07-20",
+      "categoria": "Presença digital",
+      "seo_title": "9 vantagens de ter um site profissional pra sua empresa | Bora de Site",
+      "seo_desc": "Por que ter um site profissional? Autoridade, ser achado no Google, link próprio, portfólio, mais leads no WhatsApp e mais vendas. Veja as 9 vantagens práticas.",
+      "conteudo": [
+        "É só olhar pros lados: todas as grandes empresas têm um site. Não é coincidência — é porque funciona. Aqui vão as vantagens práticas de colocar sua empresa na internet com um site profissional.",
+        { "h2": "As 9 vantagens" },
+        { "lista": [
+          "Mais autoridade: sua empresa passa a ser levada a sério.",
+          "Um link próprio pra enviar a qualquer cliente, em qualquer canal.",
+          "Ser encontrado no Google por quem já está pronto pra comprar.",
+          "Sair na frente dos concorrentes que só pensam em Instagram.",
+          "Um portfólio permanente pra apresentar seu trabalho.",
+          "Clientes exigentes pesquisam antes de fechar — e te encontram bem apresentado.",
+          "Mais vendas: o site guia o visitante até a ação.",
+          "Mais acessos e leads no seu Instagram e no seu WhatsApp.",
+          "Informações centralizadas: horário, serviços, contato — tudo num lugar só."
+        ] },
+        { "h2": "E o melhor: você investe uma vez" },
+        "Diferente de anúncio, que para quando o dinheiro para, o site segue trabalhando. Com atualização recorrente ele rende ainda mais — mas mesmo parado ele já gera autoridade e recebe quem te procura.",
+        { "html": "<p>Quer o seu? A Bora de Site entrega site + ficha do Google + SEO em 7 dias, com <a href=\"/quanto-custa-um-site.html\">preço claro</a> e prévia grátis do design antes de você fechar. <a href=\"/#contato\">Bora?</a></p>" }
+      ]
+    }
+  ]
+}

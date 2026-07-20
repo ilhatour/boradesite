@@ -287,21 +287,30 @@ function planosSec() {
 const bulbMini = () => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" class="ic"><path d="M12 3a6.5 6.5 0 0 0-4 11.6c.8.7 1.3 1.4 1.5 2.4h5c.2-1 .7-1.7 1.5-2.4A6.5 6.5 0 0 0 12 3Z"/><path d="M10 20h4"/></svg>`;
 
 function portfolioSec() {
-  const cards = PLANOS.portfolio.map(s => `<a class="pf reveal" href="${s.url}" rel="noopener">
-    <span class="pf__nicho">${esc(s.nicho)}</span>
-    <strong class="pf__nome">${esc(s.nome)}</strong>
-    <span class="pf__url">${esc(s.url.replace('https://', ''))} ${ic('arrow')}</span>
+  const cards = PLANOS.portfolio.map(s => `<a class="pf" href="${s.url}" rel="noopener">
+    <img class="pf__shot" src="/assets/img/portfolio/${s.img}" alt="Site ${esc(s.nome)} — ${esc(s.nicho)}" width="1000" height="625" loading="lazy">
+    <span class="pf__body">
+      <span class="pf__nicho">${esc(s.nicho)}</span>
+      <strong class="pf__nome">${esc(s.nome)}</strong>
+      <span class="pf__url">${esc(s.url.replace('https://', ''))} ${ic('arrow')}</span>
+    </span>
   </a>`).join('');
   return `<section class="sec sec--soft" id="portfolio">
   ${wave('var(--white)', true)}
   <div class="wrap">
-    <div class="sec__head reveal">
-      <p class="eyebrow">Portfólio</p>
-      <h2>Sites que já estão no ar</h2>
-      <p class="lead">Do turismo ao SaaS — a mesma régua de qualidade em cada projeto. Dá uma olhada.</p>
+    <div class="sec__head sec__head--row reveal">
+      <div>
+        <p class="eyebrow">Portfólio</p>
+        <h2>Sites que já estão no ar</h2>
+        <p class="lead">Do turismo ao SaaS — a mesma régua de qualidade em cada projeto. Dá uma olhada.</p>
+      </div>
+      <div class="pfs__navbtns" aria-hidden="true">
+        <button class="pfs__btn" data-dir="-1" aria-label="Anterior">${ic('arrow', 'ic--flip')}</button>
+        <button class="pfs__btn" data-dir="1" aria-label="Próximo">${ic('arrow')}</button>
+      </div>
     </div>
-    <div class="pfs">${cards}</div>
   </div>
+  <div class="pfs reveal" id="pfs">${cards}</div>
 </section>`;
 }
 
@@ -404,9 +413,196 @@ function buildHome() {
     + foot();
 }
 
+// ---------- páginas internas ----------
+const BLOG = read('data/blog.json');
+
+function subhero(eyebrow, h1, lead) {
+  return `<section class="subhero">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--y">${esc(eyebrow)}</p>
+    <h1>${esc(h1)}</h1>
+    ${lead ? `<p class="subhero__lead">${esc(lead)}</p>` : ''}
+  </div>
+</section>`;
+}
+
+const crumbs = (items) => ({
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: URL + url }))
+});
+
+const faqLd = (faqs) => ({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }))
+});
+
+function faqBlock(faqs) {
+  return `<div class="faq">${faqs.map(([q, a]) => `<details class="faq__item"><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
+}
+
+const ctaBand = () => `<div class="prose__cta">
+  <a class="btn btn--cta btn--lg" href="${JOTFORM}" rel="noopener">Começar meu site ${ic('arrow')}</a>
+  <a class="btn btn--dark btn--lg" href="${WA_DEFAULT}" data-wa>${waLogo}<span>Falar no WhatsApp</span></a>
+</div>`;
+
+function buildCriacao() {
+  const title = 'Criação de Sites Profissionais em 7 Dias | Bora de Site';
+  const desc = 'Empresa de criação de sites para pequenos e médios negócios: site de 5 seções focado em conversão, ficha do Google e SEO inclusos, no ar em 7 dias. Prévia grátis do design.';
+  const faqs = [
+    ['Como funciona o processo de criação do site?', 'Em 5 passos: definimos sua identidade visual (3 opções de paleta), você preenche o briefing, criamos o site, montamos sua ficha do Google com os serviços cadastrados e fazemos o SEO completo antes de entregar. Tudo em 7 dias.'],
+    ['Preciso entender de tecnologia?', 'Não. Você só preenche o briefing com as informações da sua empresa. A parte técnica — construção, hospedagem, domínio, Google — é toda por nossa conta.'],
+    ['Posso ver o site antes de pagar?', 'Sim. Criamos uma prévia do design antes de você fechar. Gostou? Fecha. Não gostou? Não paga nada.'],
+    ['Consigo alterar o site depois de pronto?', 'O site é entregue em HTML, sem painel de edição. Alterações são feitas pela nossa equipe — na consultoria mensal (R$ 500/mês) você tem 4 horas de ajustes por mês, com solicitações via formulário.'],
+    ['Vocês cuidam da hospedagem e do domínio?', 'Podemos cuidar de tudo em contrato, com transferência garantida pra você em até 30 dias caso solicite. Ou você contrata por conta própria (~R$ 500/ano em média) e nos entrega os acessos.']
+  ];
+  const jsonld = [crumbs([['Início', '/'], ['Criação de sites', '/criacao-de-sites.html']]), faqLd(faqs)];
+  const body = `${subhero('Criação de sites', 'Criação de sites profissionais, sem burocracia', 'Site de verdade, focado em conversão — no ar em 7 dias, com ficha do Google e SEO inclusos.')}
+<section class="sec sec--white">
+  ${wave('var(--navy-d)')}
+  <div class="wrap prose">
+    <h2>Um site que faz o pequeno negócio parecer gente grande</h2>
+    <p>A Bora de Site cria sites objetivos para pequenos e médios negócios: turismo, serviços locais, lojas e marcas pessoais. Nada de projeto arrastado — a estrutura é validada no mercado: <strong>5 seções que convertem</strong>, até 5 produtos ou serviços em destaque, botão de WhatsApp e uma ação principal clara.</p>
+    <h2>O que está incluso em todo projeto</h2>
+    <ul>
+      <li><strong>Identidade visual:</strong> definimos a paleta com você — entregamos 3 opções.</li>
+      <li><strong>Site completo:</strong> home de 5 seções + páginas dos seus produtos ou serviços.</li>
+      <li><strong>Ficha do Google:</strong> criamos seu Perfil da Empresa e cadastramos seus serviços.</li>
+      <li><strong>SEO:</strong> seu site já sai ranqueando nas buscas do seu nicho.</li>
+      <li><strong>Prazo:</strong> 7 dias, da assinatura à entrega.</li>
+    </ul>
+    <p>Prestador de serviços? Destacamos seus principais serviços. Lojista? Trabalhamos por categorias do que você vende.</p>
+    <h2>Garantia: você vê antes de pagar</h2>
+    <p>Criamos uma prévia do seu site antes da contratação. Se você não gostar do design, não paga nada e o contrato é cancelado. Transparência total sobre o que você vai receber.</p>
+    ${ctaBand()}
+    <h2>Perguntas frequentes</h2>
+    ${faqBlock(faqs)}
+    <p class="prose__links">Veja também: <a href="/quanto-custa-um-site.html">quanto custa um site profissional</a> · <a href="/#portfolio">nosso portfólio</a> · <a href="/blog.html">blog</a></p>
+  </div>
+</section>`;
+  return head(title, desc, URL + '/criacao-de-sites.html', jsonld) + body + foot();
+}
+
+function buildQuantoCusta() {
+  const title = 'Quanto Custa um Site Profissional? Preços claros | Bora de Site';
+  const desc = 'Quanto custa criar um site profissional? Na Bora de Site os preços são públicos: planos de R$ 3.000 a R$ 5.000, com ficha do Google e SEO inclusos, entrega em 7 dias.';
+  const faqs = [
+    ['Quanto custa um site profissional na Bora de Site?', 'R$ 3.000 (Master), R$ 4.000 (Super Site, com blog) ou R$ 5.000 (Site 360°, com landing page de alta conversão). Todos incluem ficha do Google e SEO, entregues em 7 dias.'],
+    ['O que está incluso no preço?', 'Paleta de cores, site completo de 5 seções, ficha do Google com serviços cadastrados e trabalho completo de SEO. Nos planos maiores, blog com 3 postagens e landing page.'],
+    ['Quanto custam hospedagem e domínio?', 'Ficam por conta do cliente — em média R$ 500 por ano. Se preferir, cuidamos de tudo em contrato, com transferência garantida em até 30 dias caso você solicite.'],
+    ['Existe mensalidade?', 'Não é obrigatória. Quem quiser acompanhamento contrata a consultoria por R$ 500/mês: 2 postagens no blog, 4 horas de ajustes (até 1 solicitação por semana), 1 postagem no Google e análise de desempenho quinzenal.'],
+    ['E se eu não gostar do resultado?', 'Você vê uma prévia do design antes de fechar. Não gostou? Não paga nada.']
+  ];
+  const jsonld = [
+    crumbs([['Início', '/'], ['Quanto custa um site', '/quanto-custa-um-site.html']]),
+    faqLd(faqs),
+    {
+      '@context': 'https://schema.org', '@type': 'Service',
+      serviceType: 'Criação de site profissional', provider: { '@type': 'Organization', name: 'Bora de Site', url: URL },
+      areaServed: 'BR',
+      offers: {
+        '@type': 'AggregateOffer', priceCurrency: 'BRL',
+        lowPrice: 3000, highPrice: 5000, offerCount: PLANOS.planos.length,
+        offers: PLANOS.planos.map(p => ({ '@type': 'Offer', name: 'Plano ' + p.nome, price: p.preco, priceCurrency: 'BRL' }))
+      }
+    }
+  ];
+  const planosRows = PLANOS.planos.map(p => `<tr><td><strong>${esc(p.nome)}</strong></td><td class="num">${esc(p.preco_display)}</td><td>${p.inclui.map(esc).join(' · ')}</td></tr>`).join('');
+  const body = `${subhero('Preços', 'Quanto custa um site profissional?', 'Aqui o preço é público — como a gente acha que deveria ser em todo lugar.')}
+<section class="sec sec--white">
+  ${wave('var(--navy-d)')}
+  <div class="wrap prose">
+    <p>Se você já pesquisou <strong>quanto custa criar um site</strong>, sabe que quase ninguém publica preço. Na Bora de Site o valor é claro desde o começo: são três planos fechados, com tudo incluso e entrega em <strong>7 dias</strong>.</p>
+    <h2>Tabela de preços</h2>
+    <div class="prose__tablewrap"><table class="ptable">
+      <thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead>
+      <tbody>${planosRows}</tbody>
+    </table></div>
+    <h2>Custos que rodam por fora</h2>
+    <ul>
+      <li><strong>Hospedagem + domínio:</strong> por conta do cliente, em média R$ 500/ano. Podemos cuidar de tudo em contrato.</li>
+      <li><strong>Consultoria mensal (opcional):</strong> R$ 500/mês — 2 posts no blog, 4h de ajustes (até 1 solicitação/semana), 1 post no Google e análise quinzenal.</li>
+      <li><strong>Ferramentas de medição do Google (opcional):</strong> R$ 1.000 únicos — rastreamento completo do tráfego pra relatórios mais assertivos.</li>
+    </ul>
+    <h2>Por que não é "site de R$ 300"?</h2>
+    <p>Porque o barato que não aparece no Google sai caro. Aqui o site nasce com <strong>SEO completo</strong> e <strong>ficha do Google</strong> — as duas coisas que fazem alguém realmente te encontrar. É preço justo pra um site que entrega resultado, não um cartão de visitas parado.</p>
+    ${ctaBand()}
+    <h2>Perguntas frequentes sobre preço</h2>
+    ${faqBlock(faqs)}
+    <p class="prose__links">Veja também: <a href="/criacao-de-sites.html">como funciona a criação do site</a> · <a href="/#planos">planos em detalhe</a></p>
+  </div>
+</section>`;
+  return head(title, desc, URL + '/quanto-custa-um-site.html', jsonld) + body + foot();
+}
+
+// ---------- blog ----------
+function renderBlocks(blocks) {
+  return blocks.map(b => {
+    if (typeof b === 'string') return `<p>${esc(b)}</p>`;
+    if (b.h2) return `<h2>${esc(b.h2)}</h2>`;
+    if (b.lista) return `<ul>${b.lista.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
+    if (b.html) return b.html; // trusted — escrito por nós
+    return '';
+  }).join('\n');
+}
+
+function buildBlogIndex() {
+  const title = 'Blog | Bora de Site — presença digital pra pequenos negócios';
+  const desc = 'Conteúdo direto ao ponto sobre sites, Google e presença digital pra pequenos e médios negócios.';
+  const cards = BLOG.posts.map(p => `<a class="bpost reveal" href="/blog/${p.slug}.html">
+    <span class="pf__nicho">${esc(p.categoria)}</span>
+    <strong class="bpost__t">${esc(p.titulo)}</strong>
+    <span class="bpost__r">${esc(p.resumo)}</span>
+    <span class="pf__url">Ler artigo ${ic('arrow')}</span>
+  </a>`).join('');
+  const jsonld = [crumbs([['Início', '/'], ['Blog', '/blog.html']]), {
+    '@context': 'https://schema.org', '@type': 'Blog', name: 'Blog da Bora de Site', url: URL + '/blog.html',
+    blogPost: BLOG.posts.map(p => ({ '@type': 'BlogPosting', headline: p.titulo, datePublished: p.data, url: `${URL}/blog/${p.slug}.html` }))
+  }];
+  const body = `${subhero('Blog', 'Presença digital, sem enrolação', 'O que sua empresa precisa saber sobre site, Google e conversão.')}
+<section class="sec sec--white">
+  ${wave('var(--navy-d)')}
+  <div class="wrap"><div class="bposts">${cards}</div></div>
+</section>`;
+  return head(title, desc, URL + '/blog.html', jsonld) + body + foot();
+}
+
+function buildPost(p) {
+  const canonical = `${URL}/blog/${p.slug}.html`;
+  const jsonld = [
+    crumbs([['Início', '/'], ['Blog', '/blog.html'], [p.titulo, `/blog/${p.slug}.html`]]),
+    {
+      '@context': 'https://schema.org', '@type': 'BlogPosting',
+      headline: p.titulo, description: p.resumo, datePublished: p.data, dateModified: p.data,
+      author: { '@type': 'Organization', name: 'Equipe Bora de Site' },
+      publisher: { '@type': 'Organization', name: 'Bora de Site', url: URL },
+      mainEntityOfPage: canonical
+    }
+  ];
+  const outros = BLOG.posts.filter(x => x.slug !== p.slug).map(x =>
+    `<a class="bpost bpost--mini" href="/blog/${x.slug}.html"><strong class="bpost__t">${esc(x.titulo)}</strong><span class="pf__url">Ler ${ic('arrow')}</span></a>`).join('');
+  const body = `${subhero(p.categoria, p.titulo, '')}
+<section class="sec sec--white">
+  ${wave('var(--navy-d)')}
+  <div class="wrap prose prose--post">
+    <p class="post__meta">Equipe Bora de Site · ${p.data.split('-').reverse().join('/')}</p>
+    ${renderBlocks(p.conteudo)}
+    ${ctaBand()}
+    <h2>Continue lendo</h2>
+    <div class="bposts bposts--mini">${outros}</div>
+  </div>
+</section>`;
+  return head(p.seo_title || p.titulo, p.seo_desc || p.resumo, canonical, jsonld) + body + foot();
+}
+
 // ---------- sitemap / robots ----------
 function sitemap() {
-  const urls = [URL + '/'];
+  const urls = [
+    URL + '/',
+    URL + '/criacao-de-sites.html',
+    URL + '/quanto-custa-um-site.html',
+    URL + '/blog.html',
+    ...BLOG.posts.map(p => `${URL}/blog/${p.slug}.html`)
+  ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map(u => `  <url><loc>${u}</loc><lastmod>${LASTMOD}</lastmod><changefreq>weekly</changefreq></url>`).join('\n')}
@@ -415,7 +611,13 @@ ${urls.map(u => `  <url><loc>${u}</loc><lastmod>${LASTMOD}</lastmod><changefreq>
 const robots = () => `User-agent: *\nAllow: /\n\nSitemap: ${URL}/sitemap.xml\n`;
 
 // ---------- write ----------
+import { mkdirSync } from 'node:fs';
+mkdirSync(join(ROOT, 'blog'), { recursive: true });
 writeFileSync(join(ROOT, 'index.html'), buildHome());
+writeFileSync(join(ROOT, 'criacao-de-sites.html'), buildCriacao());
+writeFileSync(join(ROOT, 'quanto-custa-um-site.html'), buildQuantoCusta());
+writeFileSync(join(ROOT, 'blog.html'), buildBlogIndex());
+for (const p of BLOG.posts) writeFileSync(join(ROOT, 'blog', `${p.slug}.html`), buildPost(p));
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap());
 writeFileSync(join(ROOT, 'robots.txt'), robots());
-console.log('✓ Bora de Site gerado: index.html, sitemap.xml, robots.txt');
+console.log(`✓ Bora de Site gerado: home + 2 páginas SEO + blog (${BLOG.posts.length} posts) + sitemap (${4 + BLOG.posts.length} URLs) + robots`);
