@@ -43,18 +43,28 @@
     "nome": "Consultoria pós-lançamento",
     "preco": 500,
     "preco_display": "R$ 500/mês",
+    "resumo": "Opcional. Pra manter o site vivo e subindo no Google todo mês.",
     "inclui": [
       "2 postagens no blog por mês",
-      "4 horas de ajustes no site — solicitações via formulário (até 1 por semana)",
+      "4 horas de ajustes no site por mês (no total)",
+      "Solicitações via formulário — no máximo 1 por semana",
       "1 postagem no Google (Perfil da Empresa) por mês",
-      "Análise de desempenho quinzenal (crescimento e cliques no Google)"
-    ]
+      "Análise de desempenho quinzenal",
+      "Acompanhamento do seu crescimento no Google"
+    ],
+    "requer": "Precisa do complemento de performance no Google."
   },
   "addon_google": {
-    "nome": "Ferramentas de medição do Google",
+    "nome": "Setup de performance no Google",
     "preco": 1000,
     "preco_display": "R$ 1.000 (pagamento único)",
-    "descricao": "Cadastro nas principais ferramentas do Google para medir o tráfego do site e entregar relatórios mais assertivos."
+    "resumo": "Toda a base montada pra você medir e crescer no Google.",
+    "inclui": [
+      "Consultoria das principais palavras-chave do seu nicho — as que trazem cliente pronto pra comprar",
+      "Mapa de ataque: por onde começar e o que priorizar no Google",
+      "Ferramentas de medição do Google (Analytics + Search Console) instaladas no site",
+      "Banco de acompanhamento com a evolução do site a cada 15 dias — palavras-chave, cliques e posição"
+    ]
   },
   "garantia": "Criamos uma prévia do seu site antes de você contratar. Gostou do design? Fecha com a gente. Não gostou? Não paga nada e o contrato é cancelado.",
   "prazo": "7 dias",

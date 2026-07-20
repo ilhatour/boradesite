@@ -271,12 +271,16 @@ function planosSec() {
         <ul class="plan__list">
           ${r.inclui.map(x => `<li>${ic('check')}<span>${esc(x)}</span></li>`).join('')}
         </ul>
+        ${r.requer ? `<p class="extra__req">${bulbMini()}<span>${esc(r.requer)}</span></p>` : ''}
       </div>
-      <div class="extra reveal">
+      <div class="extra extra--star reveal">
         <p class="extra__k">Complemento único</p>
         <h3>${esc(a.nome)}</h3>
         <p class="extra__price">${esc(a.preco_display)}</p>
-        <p class="extra__desc">${esc(a.descricao)}</p>
+        <p class="extra__resumo">${esc(a.resumo)}</p>
+        <ul class="plan__list">
+          ${a.inclui.map(x => `<li>${ic('check')}<span>${esc(x)}</span></li>`).join('')}
+        </ul>
       </div>
     </div>
   </div>
@@ -320,16 +324,19 @@ function garantiaSec() {
   <div class="wrap garantia">
     <div class="garantia__card reveal">
       <p class="eyebrow eyebrow--y">Garantia</p>
-      <h2>Você vê antes de pagar</h2>
+      <h2>Você vê o site <span class="hl-neon">antes de pagar</span></h2>
       <p class="lead">A gente cria uma prévia do seu site antes de você fechar. <strong>Gostou do design? Fecha. Não gostou? Não paga nada</strong> e o contrato é cancelado. Sem risco, sem surpresa.</p>
-      <p class="garantia__note">Não é sobre um site "revolucionário" — é um template validado no mercado, incorporado ao Google (ficha + paleta + SEO). O que faz o seu negócio crescer.</p>
+      <div class="garantia__diff">
+        <span class="garantia__pin">${bulbMini()} O diferencial</span>
+        <p>Aqui não é template pronto de Wix. A gente <strong>desenvolve sites premium</strong>, num formato que já temos segurança de que <span class="hl-neon">converte</span> — todo incorporado ao Google (ficha, paleta e SEO) pra fazer o seu negócio crescer de verdade.</p>
+      </div>
     </div>
   </div>
 </section>`;
 }
 
 function formSec() {
-  const nichos = ['Turismo', 'Serviços locais', 'Saúde e bem-estar', 'Loja / e-commerce', 'Marca pessoal', 'Outro'];
+  const nichos = ['Turismo', 'Pousada / hospedagem', 'Restaurante / gastronomia', 'Serviços locais', 'Saúde e bem-estar', 'Beleza e estética', 'Loja / e-commerce', 'Imobiliária', 'Advocacia / contabilidade', 'Educação / cursos', 'Construção / reforma', 'Marca pessoal', 'Outro (escrever)'];
   return `<section class="sec sec--soft" id="contato">
   ${wave('var(--white)', true)}
   <div class="wrap cform__grid">
@@ -354,8 +361,9 @@ function formSec() {
       </div>
       <div class="cform__row">
         <label>WhatsApp / telefone<input type="tel" name="fone" required autocomplete="tel" placeholder="(21) 9 9999-9999"></label>
-        <label>Nicho de atuação<select name="nicho">${nichos.map(n => `<option>${n}</option>`).join('')}</select></label>
+        <label>Nicho de atuação<select name="nicho" id="nicho-sel">${nichos.map(n => `<option>${esc(n)}</option>`).join('')}</select></label>
       </div>
+      <label class="cform__outro" id="nicho-outro" hidden>Qual é o seu nicho?<input type="text" name="nicho_outro" placeholder="Escreva o seu nicho de atuação"></label>
       <button class="btn btn--cta btn--lg cform__send" type="submit">${waLogo}<span>Enviar pro WhatsApp</span></button>
       <p class="cform__note">Abre o seu WhatsApp com a mensagem pronta — é só apertar enviar.</p>
     </form>
@@ -368,7 +376,7 @@ function contatoSec() {
   ${wave('var(--bg)')}
   <div class="wrap cta-final__in">
     ${bulb('cta-final__bulb')}
-    <h2>É só olhar pros lados: toda grande empresa tem um site.<br><span class="hl">Só falta você.</span></h2>
+    <h2>É só olhar pros lados: toda grande empresa tem um site. <span class="hl">Só falta você.</span></h2>
     <p class="cta-final__slogan">E aí? <strong>Bora de Site!?</strong></p>
     <div class="hero__cta">
       <a class="btn btn--cta btn--lg" href="${JOTFORM}" rel="noopener">Começar meu site ${ic('arrow')}</a>

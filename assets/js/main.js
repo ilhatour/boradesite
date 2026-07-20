@@ -74,9 +74,19 @@
   // formulário de contato → abre WhatsApp com a mensagem pronta
   var form = doc.getElementById('cform');
   if (form) {
+    // nicho "Outro" revela campo de texto
+    var sel = doc.getElementById('nicho-sel');
+    var outroWrap = doc.getElementById('nicho-outro');
+    if (sel && outroWrap) {
+      var syncOutro = function () { outroWrap.hidden = sel.value.indexOf('Outro') !== 0; };
+      sel.addEventListener('change', syncOutro);
+      syncOutro();
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var g = function (n) { var el = form.elements[n]; return el ? el.value.trim() : ''; };
+      var nicho = g('nicho');
+      if (nicho.indexOf('Outro') === 0) nicho = g('nicho_outro') || 'Outro';
       var linhas = [
         'Olá! Vim pelo site da Bora de Site 💡',
         'Nome: ' + g('nome'),
@@ -84,7 +94,7 @@
         'Empresa: ' + g('empresa'),
         g('instagram') ? 'Instagram: ' + g('instagram') : '',
         'WhatsApp/Telefone: ' + g('fone'),
-        'Nicho: ' + g('nicho'),
+        'Nicho: ' + nicho,
         'Quero saber mais sobre criar meu site!'
       ].filter(Boolean);
       var url = 'https://wa.me/' + form.getAttribute('data-wa-num') + '?text=' + encodeURIComponent(linhas.join('\n'));
