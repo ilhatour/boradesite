@@ -1,0 +1,18 @@
+# Bora de Site — cache OFF em HTML/CSS/JS (mata o cache agressivo do CDN Hostinger)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js|json|xml|txt)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  # Imagens: também no-cache (trocar foto de mesmo nome aparece na hora)
+  <FilesMatch "\.(jpg|jpeg|png|gif|svg|webp|ico)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# UTF-8 padrão
+AddDefaultCharset UTF-8
+
+# Sem barra final / sem .html na URL (opcional, ativar depois se quiser)
+# Options -MultiViews

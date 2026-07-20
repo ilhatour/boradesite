@@ -1,0 +1,34 @@
+{
+  "marca": "Bora de Site",
+  "tagline": "Presença de gente grande pro seu negócio.",
+  "dominio": "boradesite.net",
+  "url": "https://boradesite.net",
+  "descricao_pesquisavel": "Bora de Site | Criação de Sites Profissionais",
+  "categoria": "Serviço de criação de sites",
+  "contato": {
+    "whatsapp_num": "5521998270248",
+    "whatsapp_display": "+55 21 99827-0248",
+    "email": "contato@boradesite.net",
+    "instagram": "boradesite",
+    "instagram_url": "https://instagram.com/boradesite",
+    "jotform": "https://form.jotform.com/261977566369074"
+  },
+  "paleta": {
+    "principal": "#414F79",
+    "secundaria": "#2C3557",
+    "fundo": "#EEF1F7",
+    "texto": "#17203A",
+    "cta": "#F5C63D"
+  },
+  "tipografia": {
+    "display": "Sora",
+    "corpo": "Inter"
+  },
+  "ga4": "",
+  "nav": [
+    { "label": "Como funciona", "href": "/#como", "key": "como" },
+    { "label": "Planos", "href": "/#planos", "key": "planos" },
+    { "label": "Portfólio", "href": "/#portfolio", "key": "portfolio" },
+    { "label": "Contato", "href": "/#contato", "key": "contato" }
+  ]
+}

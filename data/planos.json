@@ -1,0 +1,69 @@
+{
+  "_nota": "Planos oficiais (áudio Miguel 20/07). 'Full' pode ter sido chamado de '360' — confirmar. Recorrência e add-on Google são opcionais.",
+  "planos": [
+    {
+      "slug": "master",
+      "nome": "Master",
+      "preco": 3000,
+      "preco_display": "R$ 3.000",
+      "resumo": "O essencial pra ter presença de gente grande e ranquear no Google.",
+      "inclui": [
+        "Paleta de cores (3 opções)",
+        "Site completo — 5 seções com estrutura que converte",
+        "Ficha do Google (Perfil da Empresa) + serviços cadastrados",
+        "SEO completo antes da entrega"
+      ]
+    },
+    {
+      "slug": "full",
+      "nome": "Full",
+      "preco": 4000,
+      "preco_display": "R$ 4.000",
+      "resumo": "Tudo do Master + blog pra atrair tráfego contínuo.",
+      "inclui": [
+        "Tudo do plano Master",
+        "Blog com 3 postagens em termos altamente buscados"
+      ]
+    },
+    {
+      "slug": "super-site",
+      "nome": "Super Site",
+      "preco": 5000,
+      "preco_display": "R$ 5.000",
+      "resumo": "Tudo do Full + landing page de alta conversão pro seu tráfego pago.",
+      "inclui": [
+        "Tudo do plano Full",
+        "Landing page de alta conversão (copy poderosa) pra vender o produto vencedor",
+        "Destino ideal do tráfego pago (Facebook, Instagram, Google)"
+      ]
+    }
+  ],
+  "recorrencia": {
+    "nome": "Consultoria pós-lançamento",
+    "preco": 500,
+    "preco_display": "R$ 500/mês",
+    "inclui": [
+      "1 postagem no blog por mês",
+      "4 horas de trabalho/mês para solicitações (via formulário)",
+      "Execução das atualizações que você pedir no site",
+      "1 postagem no Google por mês",
+      "Análise de desempenho quinzenal (crescimento e cliques no Google)"
+    ]
+  },
+  "addon_google": {
+    "nome": "Ferramentas de medição do Google",
+    "preco": 1000,
+    "preco_display": "R$ 1.000 (pagamento único)",
+    "descricao": "Cadastro nas principais ferramentas do Google para medir o tráfego do site e entregar relatórios mais assertivos."
+  },
+  "garantia": "Criamos uma prévia do seu site antes de você contratar. Gostou do design? Fecha com a gente. Não gostou? Não paga nada e o contrato é cancelado.",
+  "prazo": "7 dias",
+  "portfolio": [
+    { "nome": "Ilha Tour", "url": "https://ilhatour.com", "nicho": "Turismo — travessia e passeios" },
+    { "nome": "Vou de Barco", "url": "https://voudebarco.com", "nicho": "Empresa náutica" },
+    { "nome": "Pousada Paraíso", "url": "https://paraisoilhagrande.com.br", "nicho": "Pousada" },
+    { "nome": "Nutri Carina", "url": "https://nutricarinabat.com", "nicho": "Nutricionista — marca pessoal" },
+    { "nome": "Ilha Tech", "url": "https://ilhatech.io", "nicho": "Tecnologia" },
+    { "nome": "Nave Mãe", "url": "https://navemae.io", "nicho": "SaaS" }
+  ]
+}

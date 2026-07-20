@@ -1,0 +1,78 @@
+{
+  "_nota": "Copy é RASCUNHO derivado do brief (v1) — aprovar/ajustar antes do build final. Preços = PLACEHOLDER (definir: mostrar valor ou 'orçamento no WhatsApp').",
+  "servicos": [
+    {
+      "slug": "site-institucional",
+      "nome": "Site institucional & landing page",
+      "resumo": "De 1 a 5 seções, feito pra converter — não pra enfeitar.",
+      "descricao": "Um site enxuto e direto: topo que prende, prova de que dá pra confiar, o que você vende e uma ação principal clara. Pensado seção por seção pra transformar visitante em cliente.",
+      "inclui": [
+        "Home de 1 a 5 seções",
+        "Uma ação principal clara (WhatsApp, reserva ou contato)",
+        "Menu fixo e WhatsApp flutuante",
+        "SEO básico pra ser encontrado no Google",
+        "Responsivo (celular e computador)"
+      ],
+      "para_quem": "Pequeno negócio que ainda não tem site ou tem um que não traz cliente.",
+      "preco": "PLACEHOLDER",
+      "icone": "layout"
+    },
+    {
+      "slug": "pagina-de-produto",
+      "nome": "Página de produto",
+      "resumo": "Uma página por item, com foto grande, descrição e CTA que vende.",
+      "descricao": "Cada produto ou serviço ganha a própria página: foto grande e galeria, descrição completa, preço e um botão de WhatsApp com a mensagem já preenchida. Quem chega interessado sai conversando com você.",
+      "inclui": [
+        "Foto grande + galeria",
+        "Descrição completa e preço",
+        "CTA de WhatsApp com mensagem pré-preenchida",
+        "Produtos relacionados"
+      ],
+      "para_quem": "Quem tem um catálogo de produtos ou serviços pra apresentar um a um.",
+      "preco": "PLACEHOLDER",
+      "icone": "tag"
+    },
+    {
+      "slug": "identidade-visual",
+      "nome": "Identidade visual & paleta",
+      "resumo": "Cores, tipografia e um visual coeso que faz o negócio ser levado a sério.",
+      "descricao": "Definimos a paleta de cores e a tipografia do seu negócio e aplicamos num visual coeso do começo ao fim. A aparência certa é o que faz o pequeno negócio parecer — e ser tratado como — gente grande.",
+      "inclui": [
+        "Paleta de cores (o que combina com a marca)",
+        "Tipografia (títulos e texto)",
+        "Aplicação coesa no site inteiro"
+      ],
+      "para_quem": "Marca que quer transmitir profissionalismo desde o primeiro olhar.",
+      "preco": "PLACEHOLDER",
+      "icone": "palette"
+    },
+    {
+      "slug": "seo-conversao",
+      "nome": "SEO básico & foco em conversão",
+      "resumo": "Ser achado por quem já quer comprar — e virar essa busca em contato.",
+      "descricao": "Estruturamos o site pra aparecer no Google quando alguém procura o que você vende, e organizamos cada seção pra levar essa pessoa até o WhatsApp. Ser encontrado é metade; converter é a outra.",
+      "inclui": [
+        "Títulos, descrições e dados estruturados (SEO on-page)",
+        "Sitemap enviado ao Google",
+        "Cada seção pensada pra levar à ação principal"
+      ],
+      "para_quem": "Negócio que quer parar de depender só de indicação e ser achado por busca.",
+      "preco": "PLACEHOLDER",
+      "icone": "search"
+    },
+    {
+      "slug": "site-no-ar",
+      "nome": "Site no ar: hospedagem, e-mail e domínio",
+      "resumo": "A gente coloca o site no ar com e-mail profissional no seu domínio.",
+      "descricao": "Cuidamos da parte técnica de deixar o site publicado: hospedagem, seu domínio e e-mail profissional (contato@seunegocio.com). Você não precisa entender de servidor — só recebe o site funcionando.",
+      "inclui": [
+        "Publicação do site (hospedagem)",
+        "E-mail profissional no seu domínio",
+        "Configuração de domínio"
+      ],
+      "para_quem": "Quem quer um endereço próprio e e-mail com a cara do negócio.",
+      "preco": "PLACEHOLDER",
+      "icone": "globe"
+    }
+  ]
+}
